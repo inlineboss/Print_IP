@@ -15,7 +15,7 @@ private:
 	template<typename Cl>
 	static constexpr bool get_iter(...) {return false;}
 public:
-	static constexpr bool value = get_iter<Target>(nullptr);
+	static constexpr bool value = get_iter<Target>(nullptr); /**< Результат проверки на наличие типа iterator внутри класса */
 };
 
 /**
@@ -42,7 +42,7 @@ private:
 	};
 
 public:
-	static constexpr bool value = has_iter<Container>::value;
+	static constexpr bool value = has_iter<Container>::value; /**< Результата проверки принадлежности к контейнеру*/
 };
 
 /**
@@ -66,7 +66,7 @@ private:
 	};
 
 public:
-	static constexpr bool value = comparable_type<TypesPack...>::value;
+	static constexpr bool value = comparable_type<TypesPack...>::value; /**< Результат сравнения типов */
 };
 
 /**
@@ -86,11 +86,11 @@ private:
 	static constexpr std::size_t star_val = 0;
 
 public:
-	static constexpr std::size_t value = type_get<star_val, TypePack...>::value;
+	static constexpr std::size_t value = type_get<star_val, TypePack...>::value; /**< Количество типов*/
 };
 
 /**
- * \brief Метафункция для типа кортежа
+ * \brief Метафункция для определения типа кортежа
  * 		  с одинаковым типом данных
  */
 template<typename... T>
@@ -105,7 +105,7 @@ private:
 	struct is_tuple<std::tuple<Type, Args...>>:compare_type<Type, Args...> {};
 
 public:
-	static constexpr bool value = is_tuple<T...>::value;
+	static constexpr bool value = is_tuple<T...>::value; /**< Результат проверки на принадлежность */
 };
 
 
