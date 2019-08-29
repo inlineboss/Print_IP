@@ -6,7 +6,7 @@ else()
     set(VERSION_BUILD 0)
 endif()
 
-project(print_ip VERSION ${VERSION_BUILD})
+project(print_ip VERSION 0.0.${VERSION_BUILD})
 
 add_executable(
 print_ip
