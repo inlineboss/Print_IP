@@ -2,7 +2,7 @@
 #include <out_byte.h>
 #include <vector>
 #include <list>
-int main(int argc, char const *argv[])
+int main()
 {
 	  print_ip(char{-1});
 	  print_ip(short{0});

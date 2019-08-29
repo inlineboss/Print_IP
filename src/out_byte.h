@@ -24,7 +24,7 @@ auto print_ip(const Integral& value){
 	std::bitset<8*sizeof(Integral)> bit(value);
 
     auto end = sizeof(Integral)-1;
-    for(int i = 0; i < end; ++i)
+    for(std::size_t i = 0; i < end; ++i)
     {
         std::cout<<std::bitset<8>(bit.to_string(),8*i,8).to_ulong()<<".";
     }
