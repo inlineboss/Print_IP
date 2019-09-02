@@ -2,6 +2,7 @@
 #include <out_byte.h>
 #include <vector>
 #include <list>
+
 int main()
 {
 	  print_ip(char{-1});

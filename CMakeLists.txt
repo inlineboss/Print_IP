@@ -10,9 +10,9 @@ project(print_ip VERSION 0.0.${VERSION_BUILD})
 
 add_executable(
 print_ip
-src/main.cpp
-src/usr_type_traits.h
-src/out_byte.h
+main.cpp
+usr_type_traits.h
+out_byte.h
 )
 
 set_property(TARGET print_ip PROPERTY CXX_STANDARD 17)
@@ -23,7 +23,7 @@ set_target_properties(print_ip PROPERTIES
 )
 
 target_include_directories(print_ip
-    PRIVATE "${CMAKE_BINARY_DIR}" src/
+    PRIVATE "${CMAKE_BINARY_DIR}" .
 )
 
 if (MSVC)

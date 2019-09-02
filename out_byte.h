@@ -80,7 +80,7 @@ void print_ip_tuple(const Tuple& value, std::index_sequence<It...>){
  * \tparam Tuple - Тип кортежа
  * \param value - Значение, передаваемое в функцию
  */
-template<typename T, std::enable_if_t<is_valid_tuple<T>::value, int> = 0>
+template<typename T, std::enable_if_t<is_homogen_tuple<T>::value, int> = 0>
 auto print_ip(const T& obj){
 	print_ip_tuple(obj,  std::make_index_sequence<std::tuple_size<T>::value>{});
 }

@@ -4,21 +4,6 @@
 #include <tuple>
 
 /**
- * \brief Метафункция определяющая наличие типа итератор
- */
-template<typename Target>
-struct has_iterator{
-private:
-	template<typename Cl>
-	static constexpr bool get_iter(typename Cl::iterator*) {return true;}
-
-	template<typename Cl>
-	static constexpr bool get_iter(...) {return false;}
-public:
-	static constexpr bool value = get_iter<Target>(nullptr); /**< Результат проверки на наличие типа iterator внутри класса */
-};
-
-/**
  * \brief Метафункция определения принадлежности к контейнеру
  */
 template<typename Container>
@@ -70,31 +55,11 @@ public:
 };
 
 /**
- * \brief Метафункция для определения количества типов
- */
-template<typename... TypePack>
-struct get_size_pack{
-private:
-	template<std::size_t It, typename... Pack>
-	struct type_get{
-		static constexpr std::size_t value = It;
-	};
-
-	template<std::size_t It, typename T, typename... Pack>
-	struct type_get<It, T, Pack...>: type_get<It+1,Pack...>{};
-
-	static constexpr std::size_t star_val = 0;
-
-public:
-	static constexpr std::size_t value = type_get<star_val, TypePack...>::value; /**< Количество типов*/
-};
-
-/**
  * \brief Метафункция для определения типа кортежа
  * 		  с одинаковым типом данных
  */
 template<typename... T>
-struct is_valid_tuple{
+struct is_homogen_tuple{
 private:
 	template<typename Type>
 	struct is_tuple{
